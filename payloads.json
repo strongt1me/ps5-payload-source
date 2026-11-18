@@ -1,0 +1,56 @@
+{
+  "name": "strongt1me PS5 Payloads",
+  "payloads": [
+    {
+      "id": "ps5-cooling-system-center-pro",
+      "name": "PS5 Cooling & System Center - Pro",
+      "filename": "PS5_Cooling_System_Center_v1.86.5.elf",
+      "url": "https://github.com/strongt1me/ps5-cooling-system-center-pro/releases/download/v1.86.5/PS5_Cooling_System_Center_v1.86.5.elf",
+      "description": "Fan control, temperatures, game tools and web UI for your PS5 (opens in the browser on port 8086)",
+      "version": "v1.86.5",
+      "last_update": "2026-11-18",
+      "category": "Utilities & Tools",
+      "checksum": "c75f3274c7fa8dd05c281c376171158ad0940b609f2efe4facfdbd047d1973d8",
+      "author": "strongt1me",
+      "source": "https://github.com/strongt1me/ps5-cooling-system-center-pro/releases"
+    },
+    {
+      "id": "usb-formatierer",
+      "name": "USB Formatter",
+      "filename": "usb_format.elf",
+      "url": "https://github.com/strongt1me/ps5-usb-formatierer/releases/download/v2.6.68/usb_format.elf",
+      "description": "Format USB sticks and drives directly on the PS5 (exFAT with 64 KB, ideal for ShadowMountPlus, and all common file systems). Web interface with authenticity and speed tests, image backup and game management.",
+      "version": "v2.6.68",
+      "last_update": "2026-11-13",
+      "category": "Utilities & Tools",
+      "checksum": "ab5d02f14114deb4b9c466236a7ec213bf527dae1490277dee7ae12e1343b6d7",
+      "author": "strongt1me",
+      "details_url": "https://raw.githubusercontent.com/strongt1me/ps5-usb-formatierer/main/README.md",
+      "source": "https://github.com/strongt1me/ps5-usb-formatierer/releases"
+    },
+    {
+      "id": "ps5medic",
+      "name": "PS5 Medic",
+      "filename": "ps5medicui.elf",
+      "url": "https://raw.githubusercontent.com/strongt1me/ps5-medic-ui-tool/main/payload-manager/ps5medicui.elf",
+      "description": "Vollbild-App: prueft den Live-Zustand des Homebrew-Setups (Firmware, HEN, kstuff, ShadowMount+, Payloads, Dateien, Configs), erklaert Fehler in Klartext und repariert sicher mit Backup und Undo. Hinweis: Fuer den DualSense-Controller ueber websrv starten (Big-App-Lader); als reiner Payload laeuft die Bedienung nur ohne Pad.",
+      "version": "0.4.0",
+      "last_update": "2026-11-18",
+      "category": "Utilities & Tools",
+      "checksum": "c88cf5b306684a96eece97eeb84e7f8b28bef5bc2a2297d455f7d4f20241224a",
+      "author": "strongt1me"
+    },
+    {
+      "id": "ps5medic-diagnose",
+      "name": "PS5 Medic Diagnose",
+      "filename": "ps5medic.elf",
+      "url": "https://raw.githubusercontent.com/strongt1me/ps5-medic-ui-tool/main/payload-manager/ps5medic.elf",
+      "description": "Kleiner Diagnose-Payload ohne Oberflaeche: schreibt den Bericht nach /data/ps5medic/last_check.txt und legt einen Snapshot in /data/ps5medic/snapshots/ ab.",
+      "version": "0.4.0",
+      "last_update": "2026-11-18",
+      "category": "Utilities & Tools",
+      "checksum": "57ce7996c9df620d09ddc189f480ff846381e298aeceb3501e383ee1ba897e3f",
+      "author": "strongt1me"
+    }
+  ]
+}
