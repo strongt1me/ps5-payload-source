@@ -4,13 +4,13 @@
     {
       "id": "ps5-cooling-system-center-pro",
       "name": "PS5 Cooling & System Center - Pro",
-      "filename": "PS5_Cooling_System_Center_v1.88.0.elf",
-      "url": "https://github.com/strongt1me/ps5-cooling-system-center-pro/releases/download/v1.88.0/PS5_Cooling_System_Center_v1.88.0.elf",
+      "filename": "PS5_Cooling_System_Center_v1.88.1.elf",
+      "url": "https://github.com/strongt1me/ps5-cooling-system-center-pro/releases/download/v1.88.1/PS5_Cooling_System_Center_v1.88.1.elf",
       "description": "Fan control, temperatures, game tools and web UI for your PS5 (opens in the browser on port 8086)",
-      "version": "v1.88.0",
+      "version": "v1.88.1",
       "last_update": "2026-11-19",
       "category": "Utilities & Tools",
-      "checksum": "09b47fd29f03a28060f7c3dcdc149ff18c2a231113b6b43eb0bc9c42cd5a12c6",
+      "checksum": "b49782f084c82706539692d27b2a90610d7fcacb235a665842f9251650158a1a",
       "author": "strongt1me",
       "source": "https://github.com/strongt1me/ps5-cooling-system-center-pro/releases"
     },
