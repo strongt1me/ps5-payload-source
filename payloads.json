@@ -18,12 +18,12 @@
       "id": "usb-formatierer",
       "name": "USB Formatter",
       "filename": "usb_format.elf",
-      "url": "https://github.com/strongt1me/ps5-usb-formatierer/releases/download/v2.6.70/usb_format.elf",
+      "url": "https://github.com/strongt1me/ps5-usb-formatierer/releases/download/v2.6.71/usb_format.elf",
       "description": "Format USB sticks and drives directly on the PS5 (exFAT with 64 KB, ideal for ShadowMountPlus, and all common file systems). Web interface with authenticity and speed tests, image backup and game management.",
-      "version": "v2.6.70",
-      "last_update": "2026-11-19",
+      "version": "v2.6.71",
+      "last_update": "2026-11-20",
       "category": "Utilities & Tools",
-      "checksum": "175ae50cfda40d8e9dd06f5f21b5c3db732343a2e825f2ac487bae12c03b38b2",
+      "checksum": "9ed042d40ba3717d1ebb16f19b41807ae1054461629e63c758baf1ab4e9a7fb4",
       "author": "strongt1me",
       "details_url": "https://raw.githubusercontent.com/strongt1me/ps5-usb-formatierer/main/README.md",
       "source": "https://github.com/strongt1me/ps5-usb-formatierer/releases"
@@ -34,10 +34,10 @@
       "filename": "ps5medicui.elf",
       "url": "https://raw.githubusercontent.com/strongt1me/ps5-medic-ui-tool/main/payload-manager/ps5medicui.elf",
       "description": "Vollbild-App: prueft den Live-Zustand des Homebrew-Setups (Firmware, HEN, kstuff, ShadowMount+, Payloads, Dateien, Configs), erklaert Fehler in Klartext und repariert sicher mit Backup und Undo. Hinweis: Fuer den DualSense-Controller ueber websrv starten (Big-App-Lader); als reiner Payload laeuft die Bedienung nur ohne Pad.",
-      "version": "0.4.3",
-      "last_update": "2026-11-19",
+      "version": "0.4.4",
+      "last_update": "2026-11-20",
       "category": "Utilities & Tools",
-      "checksum": "facc0d6730cb126dc4c5d26b514c097b22ef34abfac82f32409f57277e61269e",
+      "checksum": "558428f1465872d608e7d24aa8906566bddef9ba4e425d06297f638c873f1db9",
       "author": "strongt1me"
     },
     {
@@ -46,10 +46,10 @@
       "filename": "ps5medic.elf",
       "url": "https://raw.githubusercontent.com/strongt1me/ps5-medic-ui-tool/main/payload-manager/ps5medic.elf",
       "description": "Kleiner Diagnose-Payload ohne Oberflaeche: schreibt den Bericht nach /data/ps5medic/last_check.txt und legt einen Snapshot in /data/ps5medic/snapshots/ ab.",
-      "version": "0.4.3",
-      "last_update": "2026-11-19",
+      "version": "0.4.4",
+      "last_update": "2026-11-20",
       "category": "Utilities & Tools",
-      "checksum": "98e1381cce1dce6add26469dacbc9c415abba4a55be9be42d03cc5a77b50ef55",
+      "checksum": "8b90d23f4d2ae7229706f12aa863bb1bf023051932c89a166e71e35d26277816",
       "author": "strongt1me"
     }
   ]
