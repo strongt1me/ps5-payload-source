@@ -1,15 +1,15 @@
-name: Payload-Quelle aktualisieren
+name: Update payload source
 
 on:
-  # Regelmaessig nach neuen Releases schauen (jede Stunde, Minute 17)
+  # Check for new releases regularly (every hour, minute 17)
   schedule:
     - cron: "17 * * * *"
-  # Manuell starten: Actions -> "Payload-Quelle aktualisieren" -> Run workflow
+  # Start manually: Actions -> "Update payload source" -> Run workflow
   workflow_dispatch:
-  # Sofort starten, wenn ein anderes Repo ein Release meldet (optional, siehe README)
+  # Start immediately when another repository reports a release (optional, see README)
   repository_dispatch:
     types: [payload-released]
-  # Bei Aenderungen am Skript selbst neu bauen
+  # Rebuild when the script itself changes
   push:
     branches: [main]
     paths:
@@ -33,17 +33,17 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: payloads.json neu bauen
+      - name: Rebuild payloads.json
         run: python build_source.py
 
-      - name: Aenderungen committen
+      - name: Commit changes
         run: |
           if git diff --quiet -- payloads.json && git ls-files --error-unmatch payloads.json >/dev/null 2>&1; then
-            echo "Keine Aenderungen."
+            echo "No changes."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898299+github-actions[bot]@users.noreply.github.com"
           git add payloads.json
-          git commit -m "payloads.json aktualisiert"
+          git commit -m "Update payloads.json"
           git push

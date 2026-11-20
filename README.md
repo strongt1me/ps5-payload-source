@@ -1,45 +1,47 @@
-# strongt1me PS5 Payloads – Quelle für den Payload Manager
+🌐 **English** · [Deutsch](README.de.md)
 
-Quelle (Custom Repository) für den [PS5 Payload Manager](https://github.com/itsPLK/ps5-payload-manager) von itsPLK.
+# strongt1me PS5 Payloads – source for the Payload Manager
 
-## Quelle hinzufügen
+Source (custom repository) for the [PS5 Payload Manager](https://github.com/itsPLK/ps5-payload-manager) by itsPLK.
 
-Payload Manager → **Settings** → **Manage Sources** → **Add Source** → diese URL einfügen:
+## Add the source
+
+Payload Manager → **Settings** → **Manage Sources** → **Add Source** → paste this URL:
 
 ```
 https://raw.githubusercontent.com/strongt1me/ps5-payload-source/main/payloads.json
 ```
 
-## Enthaltene Payloads
+## Included payloads
 
-| Payload | Projekt |
+| Payload | Project |
 | :--- | :--- |
 | PS5 Cooling & System Center – Pro | [ps5-cooling-system-center-pro](https://github.com/strongt1me/ps5-cooling-system-center-pro) |
 | USB Formatter | [ps5-usb-formatierer](https://github.com/strongt1me/ps5-usb-formatierer) |
 | PS5 Medic + PS5 Medic Diagnose | [ps5-medic-ui-tool](https://github.com/strongt1me/ps5-medic-ui-tool) |
 
-## Automatische Aktualisierung
+## Automatic updates
 
-`payloads.json` wird von der GitHub Action [`update-source.yml`](.github/workflows/update-source.yml)
-aus den `payload-manager.json`-Dateien der einzelnen Projekte gebaut (`build_source.py`):
+`payloads.json` is built by the GitHub Action [`update-source.yml`](.github/workflows/update-source.yml)
+from the `payload-manager.json` files of the individual projects (`build_source.py`):
 
-- **stündlich** automatisch,
-- **manuell** über *Actions → Payload-Quelle aktualisieren → Run workflow*,
-- **sofort nach einem Release** (optional, siehe unten).
+- **every hour** automatically,
+- **manually** via *Actions → Update payload source → Run workflow*,
+- **right after a release** (optional, see below).
 
-Committet wird nur, wenn sich etwas geändert hat. Ist ein Manifest nicht erreichbar oder fehlerhaft,
-schlägt der Lauf fehl und die bisherige `payloads.json` bleibt unverändert.
+A commit is only made when something has changed. If a manifest is unreachable or invalid,
+the run fails and the previous `payloads.json` stays unchanged.
 
-Neues Projekt aufnehmen: Eintrag in `MANIFESTS` in `build_source.py` ergänzen und pushen.
+Adding a new project: add an entry to `MANIFESTS` in `build_source.py` and push.
 
-### Optional: sofort nach einem Release aktualisieren
+### Optional: update right after a release
 
-1. Fine-grained Personal Access Token erstellen: nur für dieses Repo, Berechtigung **Contents: Read and write**.
-2. In jedem Payload-Repo als Secret `SOURCE_REPO_TOKEN` hinterlegen.
-3. Am Ende des Release-Workflows dieser Payload-Repos diesen Schritt anhängen:
+1. Create a fine-grained personal access token: only for this repository, permission **Contents: Read and write**.
+2. Store it as the secret `SOURCE_REPO_TOKEN` in each payload repository.
+3. Append this step to the end of the release workflow of those payload repositories:
 
 ```yaml
-      - name: Payload-Quelle aktualisieren
+      - name: Update payload source
         if: ${{ success() }}
         run: |
           curl -fsS -X POST \
@@ -49,4 +51,4 @@ Neues Projekt aufnehmen: Eintrag in `MANIFESTS` in `build_source.py` ergänzen u
             -d '{"event_type":"payload-released"}'
 ```
 
-Ohne diesen Schritt kommt ein neues Release spätestens nach einer Stunde in der Quelle an.
+Without this step a new release reaches the source within an hour at the latest.

@@ -1,9 +1,9 @@
-"""Baut payloads.json fuer den PS5 Payload Manager (itsPLK) aus den Einzel-Manifesten.
+"""Builds payloads.json for the PS5 Payload Manager (itsPLK) from the individual manifests.
 
-Aufruf:  python build_source.py   -> schreibt payloads.json neben dieses Skript.
-Die GitHub Action .github/workflows/update-source.yml fuehrt das stuendlich aus
-und committet payloads.json nur, wenn sich etwas geaendert hat.
-Faellt ein Manifest aus, bricht das Skript ab und die alte payloads.json bleibt stehen.
+Usage:  python build_source.py   -> writes payloads.json next to this script.
+The GitHub Action .github/workflows/update-source.yml runs this every hour
+and commits payloads.json only when something has changed.
+If a manifest fails, the script aborts and the old payloads.json stays in place.
 """
 import json
 import pathlib
@@ -15,7 +15,7 @@ AUTHOR = "strongt1me"
 CATEGORY = "Utilities & Tools"
 
 MANIFESTS = [
-    # (URL, Ersatz-ID fuer Eintraege ohne "id")
+    # (URL, fallback ID for entries without "id")
     ("https://github.com/strongt1me/ps5-cooling-system-center-pro/releases/latest/download/payload-manager.json",
      "ps5-cooling-system-center-pro"),
     ("https://github.com/strongt1me/ps5-usb-formatierer/releases/latest/download/payload-manager.json",
@@ -43,26 +43,26 @@ def main():
             p = dict(p)
             p.setdefault("id", fallback_id)
             p.setdefault("author", AUTHOR)
-            p["category"] = CATEGORY  # einheitliche Gruppe im Manager
+            p["category"] = CATEGORY  # one common group in the manager
             for key in ("name", "filename", "url"):
                 if not p.get(key):
-                    raise SystemExit(f"{url}: Pflichtfeld '{key}' fehlt")
+                    raise SystemExit(f"{url}: required field '{key}' missing")
             if not re.fullmatch(r"[a-z0-9._-]+", p["id"]):
-                raise SystemExit(f"Ungueltige id: {p['id']}")
+                raise SystemExit(f"invalid id: {p['id']}")
             if p["id"] in seen:
-                raise SystemExit(f"Doppelte id: {p['id']}")
+                raise SystemExit(f"duplicate id: {p['id']}")
             if p.get("checksum") and not re.fullmatch(r"[0-9a-fA-F]{64}", p["checksum"]):
-                raise SystemExit(f"{p['id']}: checksum ist kein SHA-256")
+                raise SystemExit(f"{p['id']}: checksum is not a SHA-256")
             seen.add(p["id"])
             payloads.append({k: p[k] for k in ORDER if k in p} |
                             {k: v for k, v in p.items() if k not in ORDER})
 
     out = pathlib.Path(__file__).with_name("payloads.json")
-    # newline="\n": gleiche Datei unter Windows und in der GitHub Action (keine Schein-Diffs)
+    # newline="\n": same file on Windows and in the GitHub Action (no spurious diffs)
     out.write_text(json.dumps({"name": SOURCE_NAME, "payloads": payloads},
                               indent=2, ensure_ascii=False) + "\n",
                    encoding="utf-8", newline="\n")
-    print(f"{out.name}: {len(payloads)} Payloads geschrieben")
+    print(f"{out.name}: {len(payloads)} payloads written")
 
 
 if __name__ == "__main__":
